@@ -1,0 +1,20 @@
+{
+	"name": "添付ファイルをそのまま表示",
+	"version": "0.1.0",
+	"manifest_version": 2,
+
+	"description": "ダウンロードされてしまう添付ファイルをそのまま表示する",
+
+	"permissions": [
+		"webRequest",
+		"webRequestBlocking",
+		"http://media.amazonwebservices.com/",
+		"https://www.skipaas.com/"
+	],
+
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	}
+}
