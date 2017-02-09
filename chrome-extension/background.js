@@ -12,8 +12,7 @@ const callback = details => {
 					const fileExt = RegExp.$1;
 					const binaryValue = responseHeader.binaryValue;
 					binaryValue.splice(0, "attachment".length);
-					const str = "inline";
-					const inline = str.split("").map((_, i) => str.charCodeAt(i));
+					const inline = "inline".split("").map(char => char.charCodeAt(0));
 					responseHeader.binaryValue = inline.concat(binaryValue);
 					changeContentType(details.responseHeaders, fileExt);
 					return {
