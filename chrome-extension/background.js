@@ -33,7 +33,7 @@ const callback = details => {
 			break;
 		}
 	}
-	if (details.url.match(/[.](txt|md|pdf|png|jpe?g|gif)/)) {
+	if (details.url.match(/^[^?]*[.](txt|md|pdf|png|jpe?g|gif)/)) {
 		const fileExt = RegExp.$1;
 		changeContentType(details.responseHeaders, fileExt);
 		return {
