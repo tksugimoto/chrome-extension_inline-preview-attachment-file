@@ -4,7 +4,7 @@ const REGEXP_TARGET_ATTACHMENT = /^attachment; *filename="[^"]*[.](txt|md|pdf|pn
 const callback = details => {
 	for (let i = 0; i < details.responseHeaders.length; ++i) {
 		const responseHeader = details.responseHeaders[i];
-		if (responseHeader.name === "Content-Disposition") {
+		if (responseHeader.name.toLocaleLowerCase() === "content-disposition") {
 			if (responseHeader.binaryValue) {
 				const value = String.fromCharCode.apply(String, responseHeader.binaryValue);
 				
@@ -63,7 +63,7 @@ const changeContentType = (responseHeaders, fileExt) => {
 	const contentType = contentTypes[fileExt] || `image/${fileExt}`;
 	for (let i = 0; i < responseHeaders.length; ++i) {
 		const responseHeader = responseHeaders[i];
-		if (responseHeader.name === "Content-Type") {
+		if (responseHeader.name.toLocaleLowerCase === "content-type") {
 			responseHeader.value = contentType;
 			return;
 		}
