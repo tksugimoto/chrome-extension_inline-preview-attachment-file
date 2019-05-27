@@ -6,7 +6,7 @@ const callback = details => {
 		const responseHeader = details.responseHeaders[i];
 		if (responseHeader.name.toLocaleLowerCase() === "content-disposition") {
 			if (responseHeader.binaryValue) {
-				const value = String.fromCharCode.apply(String, responseHeader.binaryValue);
+				const value = String.fromCharCode(... responseHeader.binaryValue);
 				
 				if (value.match(REGEXP_TARGET_ATTACHMENT)) {
 					const fileExt = RegExp.$1;
