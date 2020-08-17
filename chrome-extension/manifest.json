@@ -8,6 +8,7 @@
 	"permissions": [
 		"webRequest",
 		"webRequestBlocking",
+		"https://raw.githubusercontent.com/",
 		"http://media.amazonwebservices.com/",
 		"https://www.skipaas.com/"
 	],

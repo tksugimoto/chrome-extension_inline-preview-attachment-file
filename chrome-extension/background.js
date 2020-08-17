@@ -7,7 +7,7 @@ const callback = details => {
 		if (responseHeader.name.toLocaleLowerCase() === "content-disposition") {
 			if (responseHeader.binaryValue) {
 				const value = String.fromCharCode(... responseHeader.binaryValue);
-				
+
 				if (value.match(REGEXP_TARGET_ATTACHMENT)) {
 					const fileExt = RegExp.$1;
 					const binaryValue = responseHeader.binaryValue;
@@ -43,6 +43,8 @@ const callback = details => {
 };
 const filter = {
 	urls: [
+		// GitHub raw content
+		"https://raw.githubusercontent.com/*",
 		// AWS
 		"http://media.amazonwebservices.com/*",
 		// skipaas
