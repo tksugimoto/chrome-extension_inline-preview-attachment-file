@@ -65,7 +65,7 @@ const changeContentType = (responseHeaders, fileExt) => {
 	const contentType = contentTypes[fileExt] || `image/${fileExt}`;
 	for (let i = 0; i < responseHeaders.length; ++i) {
 		const responseHeader = responseHeaders[i];
-		if (responseHeader.name.toLocaleLowerCase === "content-type") {
+		if (responseHeader.name.toLocaleLowerCase() === "content-type") {
 			responseHeader.value = contentType;
 			return;
 		}
